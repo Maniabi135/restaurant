@@ -1,0 +1,70 @@
+<div class="bg-img-height">
+  <div class="container-fluid bg-img-overlay">
+    <div class="row ptb-20">
+      <div class="col-md-12 account-register">
+        <span class="account-login">login</span>
+        <span class="account-box">create an account</span>
+      </div>
+      <div class="col-md-12 logo-location">
+        <img src="../../assets/logo/logo.jpg" alt="LOGO-RESTAURANT">
+        <p class="m-0">Find the best restaurants, cafés and bars in India</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row p-t-10">
+    <div class="col-md-12">
+      <p class="m-0 fs-20 font-bold font-3e">Popular locations in India</p>
+      <p class="m-0 subtitle">From swanky upscale restaurants to the cosiest hidden gems serving the most incredible food, Zomato covers it all. Explore menus, and millions of restaurant photos and reviews from users just like you, to find your next great meal.</p>
+    </div>
+  </div>
+
+  <div class="row plr-15 ptb-10">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 ptb-15" *ngFor="let location of locationData;let i = index;">
+      <div class="p-5 border b-r-2 bg-white font-3e cursor" (click)="getAllCityData(location.location_id)">
+        <div class="ptb-5">{{location.location_name}}<span class="m-t-2 float-r"><i class="icon-arrow-right font-3e"></i></span></div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+<footer class="ptb-10">
+  <div class="container-fluid">
+    <div class="row ptb-10">
+      <div class="col-sm-12 col-md-7 col-lg-8  col-xl-9 footer-logo">
+      <img src="../../assets/logo/logo.jpg" alt="LOGO-RESTAURANT" class="footer-img">
+      </div>
+      <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 font-white footer-dropdown">
+        <div>Drop Down</div>
+      </div>
+    </div>
+    <hr class="font-9a">
+    <div class="row font-white ptb-10">
+      <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
+        <ul class="list-none m-0 p-t-8">
+          <li class="dis-inline-block">Privacy</li>
+          <li class="dis-inline-block">Terms</li>
+          <li class="dis-inline-block">APIPolicy</li>
+          <li class="dis-inline-block">CSR</li>
+          <li class="dis-inline-block">Security</li>
+          <li class="dis-inline-block">Sitemap</li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 text-right">
+        <ul class="list-none m-0">
+          <li class="dis-inline-block"><i class="fa fa-facebook ptb-10-lr-20 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
+          <li class="dis-inline-block"><i class="fa fa-instagram p-10 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
+          <li class="dis-inline-block"><i class="fa fa-twitter p-10 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="font-9a">
+    <p class="m-0 fs-12 font-9a p-t-10">
+        By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © 2008-2018 - Zomato™ Media Pvt Ltd. All rights reserved.
+    </p>
+  </div>
+</footer>
