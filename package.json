@@ -58,13 +58,13 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/micklynch/restaurant.git"
+        "url": "git+https://github.com/Maniabi135/restaurant"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/micklynch/restaurant/issues"
+        "url": "https://github.com/Maniabi135/restaurant/issues"
     },
-    "homepage": "https://github.com/micklynch/restaurant#readme"
+    "homepage": "https://github.com/Maniabi135/restaurant#readme"
 }

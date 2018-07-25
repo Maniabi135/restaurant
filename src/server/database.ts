@@ -7,11 +7,11 @@ import { Feedback } from './models/feedbackmodel';
 
 export const sequelize =  new Sequelize({
         database: dbconfig.database,
-        dialect: dbconfig.dialect,
+        dialect : dbconfig.dialect,
         username: dbconfig.username,
         password: dbconfig.password,
-        host: dbconfig.host,
-        port: dbconfig.port
+        host    : dbconfig.host,
+        port    : dbconfig.port
 });
 
 
@@ -36,7 +36,7 @@ initializeDatabase();
 
 // Force Initialization of the models and wipe all data ///
 function initializeDatabase() {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
         console.log('Connection synced');
         return;
     }).catch(err => {
@@ -46,9 +46,9 @@ function initializeDatabase() {
 
 // Adding new currencies to the DB ///
 // function populateData() {
-//     const mycurrency = new Currency({ country: 'srilanka', exchangerate: 372300 });
-//     mycurrency.save().then(() => {
-//         console.log('City ' + mycurrency.country + ' added to DB');
+//     const location = new Location({ location_name: 'Tamil Nadu', location_code: 'TN', country: 'India', country_code: 'IND' });
+//     location.save().then(() => {
+//         console.log('City ' + location.country + ' added to DB');
 //     }).catch((err) => {
 //         console.log(err);
 //     });

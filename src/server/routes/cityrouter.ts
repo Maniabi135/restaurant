@@ -16,7 +16,7 @@ cities.get('/', (req, res, next) => {
 cities.get('/:id', async (req, res, next) => {
     try {
       const fb = await City.scope(req.query['scope']).findById(req.params['id']);
-      res.json(fb);
+      res.json(fb);  
     } catch (e) {
       next(e);
     }
