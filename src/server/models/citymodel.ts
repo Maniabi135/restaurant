@@ -3,16 +3,10 @@ import {
   Table,
   Column,
   Model,
-  CreatedAt,
-  UpdatedAt,
-  DeletedAt,
   Unique,
   BelongsTo,
-  ForeignKey,
   PrimaryKey,
-  AutoIncrement,
-  DefaultScope,
-  Scopes
+  ForeignKey
 } from 'sequelize-typescript';
 import { Location } from './locationmodel';
 
@@ -33,6 +27,5 @@ export class City extends Model<City> {
   city_id: number;
 
   @BelongsTo(() => Location, 'location_id')
-  l_id: Location;
-
+  location: Location[];
 }

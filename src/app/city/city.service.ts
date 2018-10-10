@@ -10,11 +10,8 @@ export class CityService {
 
   constructor( private http: HttpClient ) { }
 
-  // getAllCityData(id: number): any {
-  //   return this.http.get(this.baseURL + id, { responseType: 'json' });
-  // }
-
-  getAllCityData() {
-    return this.http.get(this.baseURL + 'cities', { responseType: 'json' });
+  getAllCityData(id: number): any {
+    console.log(id);
+    return this.http.get(this.baseURL + 'cities/' + id, { responseType: 'json' });
   }
 }

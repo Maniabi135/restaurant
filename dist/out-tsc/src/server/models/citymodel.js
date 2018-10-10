@@ -32,8 +32,8 @@ __decorate([
 ], City.prototype, "city_id", void 0);
 __decorate([
     sequelize_typescript_1.BelongsTo(() => locationmodel_1.Location, 'location_id'),
-    __metadata("design:type", locationmodel_1.Location)
-], City.prototype, "l_id", void 0);
+    __metadata("design:type", Array)
+], City.prototype, "location", void 0);
 City = __decorate([
     sequelize_typescript_1.Table
 ], City);

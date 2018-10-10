@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from './location.service';
 import { CityService } from '../city/city.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector   : 'app-location',
@@ -12,9 +13,9 @@ export class LocationComponent implements OnInit {
   locationData;
   cityData;
 
-  constructor( private locationService: LocationService, private cityService: CityService ) { }
+  constructor( private locationService: LocationService, private cityService: CityService, public router: Router ) { }
 
-  ngOnInit() {
+ngOnInit() {
     this.locationService.getAllLocationData().subscribe(
       data => this.locationData = data,
       err  => console.log(err),
@@ -23,7 +24,9 @@ export class LocationComponent implements OnInit {
   }
 
   getAllCityData(id) {
-    this.cityService.getAllCityData().subscribe(
+    console.log(id);
+    this.router.navigate(['/city']);
+    this.cityService.getAllCityData(id).subscribe(
       data => this.cityData = data,
       err  => console.log(err),
       ()   => console.log('city completed')

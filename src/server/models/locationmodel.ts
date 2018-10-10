@@ -3,17 +3,11 @@ import {
   Table,
   Column,
   Model,
-  CreatedAt,
-  UpdatedAt,
-  DeletedAt,
   Unique,
-  BelongsTo,
-  ForeignKey,
   PrimaryKey,
-  AutoIncrement,
-  DefaultScope,
-  Scopes
+  HasMany
 } from 'sequelize-typescript';
+import { City } from './citymodel';
 
 @Table
 export class Location extends Model<Location> {
@@ -31,11 +25,13 @@ export class Location extends Model<Location> {
   @Column
   location_id: number;
 
-
   @Column
   country: string;
 
   @Column
   country_code: string;
+
+  // @HasMany(() => City)
+  // city: City[];
 
 }

@@ -17,6 +17,7 @@ let CityService = class CityService {
         this.baseURL = 'http://localhost:3000/';
     }
     getAllCityData(id) {
+        console.log(id);
         return this.http.get(this.baseURL + 'cities/' + id, { responseType: 'json' });
     }
 };

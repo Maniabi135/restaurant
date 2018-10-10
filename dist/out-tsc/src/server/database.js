@@ -18,11 +18,9 @@ exports.sequelize.addModels([locationmodel_1.Location]);
 exports.sequelize.addModels([citymodel_1.City]);
 exports.sequelize.addModels([restaurantmodel_1.Restaurant]);
 exports.sequelize.addModels([feedbackmodel_1.Feedback]);
-initializeDatabase();
 exports.sequelize.authenticate().then(() => {
     console.log('Connected to DB');
-})
-    .catch((err) => {
+}).catch((err) => {
     console.log(err);
 });
 initializeDatabase();

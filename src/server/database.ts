@@ -14,20 +14,14 @@ export const sequelize =  new Sequelize({
         port    : dbconfig.port
 });
 
-
 sequelize.addModels([Location]);
 sequelize.addModels([City]);
 sequelize.addModels([Restaurant]);
 sequelize.addModels([Feedback]);
 
-initializeDatabase();
-
-
 sequelize.authenticate().then(() => {
     console.log('Connected to DB');
-})
-
-.catch((err) => {
+}).catch((err) => {
     console.log(err);
 });
 

@@ -10,9 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const location_service_1 = require("../location/location.service");
+const city_service_1 = require("./city.service");
+const router_1 = require("@angular/router");
 let CityComponent = class CityComponent {
-    constructor() { }
+    constructor(locationService, cityService, router) {
+        this.locationService = locationService;
+        this.cityService = cityService;
+        this.router = router;
+        this.id = 201;
+    }
     ngOnInit() {
+        this.cityService.getAllCityData(this.id).subscribe(data => this.cityData = data, err => console.log(err), () => console.log('city completed'));
+        console.log(this.cityData);
     }
 };
 CityComponent = __decorate([
@@ -21,7 +31,7 @@ CityComponent = __decorate([
         templateUrl: './city.component.html',
         styleUrls: ['./city.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [location_service_1.LocationService, city_service_1.CityService, router_1.Router])
 ], CityComponent);
 exports.CityComponent = CityComponent;
 //# sourceMappingURL=city.component.js.map
