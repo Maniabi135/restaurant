@@ -28,6 +28,12 @@ let LocationComponent = class LocationComponent {
         this.cityService.getAllCityData(id).subscribe(data => this.cityData = data, err => console.log(err), () => console.log('city completed'));
         console.log(this.cityData);
     }
+    createData(location_name, location_code, location_id, country, country_code) {
+        console.log(location_name + location_code + location_id + country + country_code);
+    }
+    updateData() {
+        console.log(this.location_name + this.location_code + this.location_id + this.country + this.country_code);
+    }
 };
 LocationComponent = __decorate([
     core_1.Component({

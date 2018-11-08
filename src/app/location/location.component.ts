@@ -12,7 +12,12 @@ export class LocationComponent implements OnInit {
 
   locationData;
   cityData;
-
+  location_name; 
+  location_code; 
+  location_id; 
+  country; 
+  country_code;
+  
   constructor( private locationService: LocationService, private cityService: CityService, public router: Router ) { }
 
 ngOnInit() {
@@ -32,5 +37,13 @@ ngOnInit() {
       ()   => console.log('city completed')
     );
     console.log(this.cityData);
+  }
+
+  createData(location_name, location_code, location_id, country, country_code) {
+    console.log(location_name + location_code + location_id + country + country_code);
+  }
+
+  updateData() {
+    console.log(this.location_name + this.location_code + this.location_id + this.country + this.country_code);
   }
 }
