@@ -25,7 +25,6 @@ __decorate([
 ], Location.prototype, "location_code", void 0);
 __decorate([
     sequelize_typescript_1.Unique,
-    sequelize_typescript_1.PrimaryKey,
     sequelize_typescript_1.Column,
     __metadata("design:type", Number)
 ], Location.prototype, "location_id", void 0);

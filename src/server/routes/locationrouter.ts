@@ -11,3 +11,14 @@ locations.get('/', (req, res, next) => {
         return err;
     });
 });
+
+locations.post('/', async (req, res, next) => {
+    console.log(req.body);
+    console.log(req.body.location_name);
+    // try {
+    //   const fb = await Location.create(req.body);
+    //   res.status(201).json(fb);
+    // } catch (e) {
+    //   next(e);
+    // }
+});

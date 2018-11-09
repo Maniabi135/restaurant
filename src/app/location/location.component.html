@@ -47,25 +47,18 @@
         <hr class="font-9a">
         <div class="row font-white ptb-10">
             <div class="col-sm-12 col-md-7 col-lg-8 col-xl-9">
-                <ul class="list-none m-0 p-t-8">
-                    <li class="dis-inline-block">Privacy</li>
-                    <li class="dis-inline-block">Terms</li>
-                    <li class="dis-inline-block">APIPolicy</li>
-                    <li class="dis-inline-block">CSR</li>
-                    <li class="dis-inline-block">Security</li>
-                    <li class="dis-inline-block">Sitemap</li>
+                <ul class="list-none m-0">
+                    <li class="dis-inline-block m-b-0" *ngFor="let data of footer_list;let i=index"><span>{{data}}</span></li>
                 </ul>
             </div>
             <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3 text-right">
                 <ul class="list-none m-0">
-                    <li class="dis-inline-block"><i class="fa fa-facebook ptb-10-lr-20 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
-                    <li class="dis-inline-block"><i class="fa fa-instagram p-10 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
-                    <li class="dis-inline-block"><i class="fa fa-twitter p-10 bg-4a b-r-50 cursor" aria-hidden="true"></i></li>
+                    <li class="dis-inline-block m-b-0" *ngFor="let media of social_media;let i=index"><i class="fa fa-{{media}} cursor" aria-hidden="true"></i></li>
                 </ul>
             </div>
         </div>
         <hr class="font-9a">
-        <p class="m-0 fs-12 font-9a p-t-10">
+        <p class="m-0 fs-12 font-9a p-t-10 text-center">
             By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © 2008-2018 - Zomato™ Media Pvt Ltd. All rights reserved.
         </p>
     </div>
@@ -84,6 +77,10 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6" *ngFor="let item of location_list;let i=index">
+                        <label for="{{item['name']}}" class="col-form-label">{{item['label']}}</label>
+                        <input type="text" class="form-control" id="{{item['name']}}" [(ngmodal)]=item.name placeholder="{{item['label']}}">
+                    </div> -->
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <label for="location_name" class="col-form-label">Location Name</label>
                         <input type="text" class="form-control" id="location_name" [(ngModel)]="location_name">
@@ -94,7 +91,7 @@
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <label for="location_id" class="col-form-label">Location Id</label>
-                        <input type="text" class="form-control" id="location_id" [(ngModel)]="location_id">
+                        <input type="number" class="form-control" id="location_id" [(ngModel)]="location_id">
                     </div>
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                         <label for="country" class="col-form-label">Country</label>
@@ -108,7 +105,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createData(location_name, location_code, location_id, country, country_code)">Create</button>
-                <button type="button" class="btn btn-primary" (click)="updateData()">Update</button>
+                <button type="button" style="display: none;" class="btn btn-primary" data-dismiss="modal" (click)="updateData()">Update</button>
             </div>
         </div>
     </div>

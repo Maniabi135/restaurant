@@ -19,6 +19,17 @@ let LocationService = class LocationService {
     getAllLocationData() {
         return this.http.get(this.baseURL + 'locations', { responseType: 'json' });
     }
+    createLocationData(location_name, location_code, location_id, country, country_code) {
+        const createData = {
+            location_name,
+            location_code,
+            location_id,
+            country,
+            country_code
+        };
+        console.log(createData);
+        return this.http.post(this.baseURL + 'locations', createData);
+    }
 };
 LocationService = __decorate([
     core_1.Injectable({

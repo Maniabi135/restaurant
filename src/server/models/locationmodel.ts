@@ -21,7 +21,6 @@ export class Location extends Model<Location> {
   location_code: string;
 
   @Unique
-  @PrimaryKey
   @Column
   location_id: number;
 
@@ -30,8 +29,5 @@ export class Location extends Model<Location> {
 
   @Column
   country_code: string;
-
-  // @HasMany(() => City)
-  // city: City[];
 
 }
