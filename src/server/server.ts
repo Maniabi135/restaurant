@@ -4,11 +4,23 @@ import { locations } from './routes/locationrouter';
 import { cities } from './routes/cityrouter';
 import { feedbacks } from './routes/feedbackrouter';
 import { restaurants } from './routes/restaurantrouter';
+import * as http from 'http';
+import {
+  json,
+  raw,
+  text,
+  urlencoded,
+} from 'body-parser';
 
 const hostname = 'localhost';
 const port     = 3000;
 
 const server = express();
+server.use(json());
+server.use(raw());
+server.use(text());
+server.use(urlencoded());
+
 server.get('/', (req, res, next) => {
    res.statusCode = 200;
    res.setHeader('Content-Type', 'text/plain');
@@ -22,6 +34,9 @@ server.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', false);
   next();
 });
+
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({ extended: true }));
 
 // initiate connection to db
 const mysequelize = sequelize;

@@ -12,6 +12,7 @@ const express_1 = require("express");
 const locationmodel_1 = require("../models/locationmodel");
 exports.locations = express_1.Router();
 exports.locations.get('/', (req, res, next) => {
+    console.log('getting elements');
     locationmodel_1.Location.findAll().then((data) => {
         return res.json(data);
     }).catch((err) => {
@@ -19,14 +20,55 @@ exports.locations.get('/', (req, res, next) => {
         return err;
     });
 });
+exports.locations.get('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    try {
+        const loc = yield locationmodel_1.Location.find({
+            where: {
+                location_id: req.params['id']
+            }
+        });
+        res.json(loc);
+    }
+    catch (e) {
+        next(e);
+    }
+}));
 exports.locations.post('/', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     console.log(req.body);
-    console.log(req.body.location_name);
-    // try {
-    //   const fb = await Location.create(req.body);
-    //   res.status(201).json(fb);
-    // } catch (e) {
-    //   next(e);
-    // }
+    try {
+        const fb = yield locationmodel_1.Location.create(req.body);
+        res.status(201).json(fb);
+    }
+    catch (e) {
+        next(e);
+    }
+}));
+exports.locations.post('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req.params['id']);
+    try {
+        yield locationmodel_1.Location.destroy({
+            where: {
+                location_id: req.params['id']
+            }
+        });
+        res.sendStatus(200);
+    }
+    catch (e) {
+        next(e);
+    }
+}));
+exports.locations.put('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req.params['id']);
+    try {
+        yield locationmodel_1.Location.update(req.body, {
+            where: {
+                id: req.params['id']
+            }
+        });
+        res.sendStatus(200);
+    }
+    catch (e) {
+        next(e);
+    }
 }));
 //# sourceMappingURL=locationrouter.js.map

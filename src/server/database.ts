@@ -30,7 +30,7 @@ initializeDatabase();
 
 // Force Initialization of the models and wipe all data ///
 function initializeDatabase() {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
         console.log('Connection synced');
         return;
     }).catch(err => {

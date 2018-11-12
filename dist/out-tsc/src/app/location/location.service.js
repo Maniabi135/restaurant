@@ -27,8 +27,24 @@ let LocationService = class LocationService {
             country,
             country_code
         };
-        console.log(createData);
         return this.http.post(this.baseURL + 'locations', createData);
+    }
+    getData(id) {
+        return this.http.get(this.baseURL + 'locations/' + id, { responseType: 'json' });
+    }
+    updateLocationData(id, location_name, location_code, location_id, country, country_code) {
+        const updateData = {
+            location_name,
+            location_code,
+            location_id,
+            country,
+            country_code
+        };
+        return this.http.put(this.baseURL + 'locations/' + id, updateData);
+    }
+    deleteLocationData(id) {
+        console.log(id);
+        return this.http.post(this.baseURL + 'locations/' + id, { responseType: 'json' });
     }
 };
 LocationService = __decorate([

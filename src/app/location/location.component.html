@@ -17,7 +17,7 @@
     <div class="row p-t-10">
         <div class="col-md-12">
             <p class="m-0 fs-20 font-bold font-3e">Popular locations in India&nbsp;
-                <button type="button" class="btn btn-sm btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                <button (click)="emptyModalData()" type="button" class="btn btn-sm btn-outline-dark" data-toggle="modal" data-target="#locationModal">
                   ADD
                 </button>
             </p>
@@ -27,8 +27,14 @@
 
     <div class="row plr-15 ptb-10">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 ptb-15" *ngFor="let location of locationData;let i = index;">
-            <div class="p-5 border b-r-2 bg-white font-3e cursor" (click)="getAllCityData(location.location_id)">
-                <div class="ptb-5">{{location.location_name}}<span class="m-t-2 float-r"><i class="icon-arrow-right font-3e"></i></span></div>
+            <div class="p-5 border b-r-2 bg-white font-3e">
+                <div class="ptb-5">{{location.location_name}}
+                    <span class="m-t-2 float-r">
+                        <i class="icon-pencil font-teal cursor m-r-5" (click)="updateData(location)" data-toggle="modal" data-target="#locationModal"></i>
+                        <i class="icon-trash font-red cursor m-r-5" (click)="deleteLocation(location.location_id)"></i>
+                        <i class="icon-arrow-right font-3e cursor m-r-5" (click)="getAllCityData(location.location_id)"></i>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -66,7 +72,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -104,8 +110,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createData(location_name, location_code, location_id, country, country_code)">Create</button>
-                <button type="button" style="display: none;" class="btn btn-primary" data-dismiss="modal" (click)="updateData()">Update</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="sendData(location_name, location_code, location_id, country, country_code)">{{this.buttonTitle}}</button>
+                <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateLocation(location_name, location_code, location_id, country, country_code)">Update</button> -->
             </div>
         </div>
     </div>

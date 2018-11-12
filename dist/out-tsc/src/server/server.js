@@ -6,9 +6,14 @@ const locationrouter_1 = require("./routes/locationrouter");
 const cityrouter_1 = require("./routes/cityrouter");
 const feedbackrouter_1 = require("./routes/feedbackrouter");
 const restaurantrouter_1 = require("./routes/restaurantrouter");
+const body_parser_1 = require("body-parser");
 const hostname = 'localhost';
 const port = 3000;
 const server = express();
+server.use(body_parser_1.json());
+server.use(body_parser_1.raw());
+server.use(body_parser_1.text());
+server.use(body_parser_1.urlencoded());
 server.get('/', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -21,6 +26,8 @@ server.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', false);
     next();
 });
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({ extended: true }));
 // initiate connection to db
 const mysequelize = database_1.sequelize;
 // add currencies route

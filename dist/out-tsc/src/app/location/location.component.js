@@ -18,6 +18,14 @@ let LocationComponent = class LocationComponent {
         this.locationService = locationService;
         this.cityService = cityService;
         this.router = router;
+        this.emptyLocation = [
+            'location_name',
+            'location_code',
+            'location_id',
+            'country',
+            'country_code',
+        ];
+        this.populateLocation = [];
         this.footer_list = ['Privacy', 'Terms', 'API Policy', 'CSR', 'Security', 'Sitemap'];
         this.social_media = ['facebook', 'instagram', 'twitter'];
         this.location_list = [
@@ -29,17 +37,58 @@ let LocationComponent = class LocationComponent {
         ];
     }
     ngOnInit() {
-        this.locationService.getAllLocationData().subscribe(data => this.locationData = data, err => console.log(err), () => console.log('location completed'));
+        this.getLocationData();
+    }
+    sendData() {
+        if (this.buttonTitle === 'Add') {
+            this.createLocation();
+        }
+        else {
+            this.updateLocation();
+        }
+    }
+    emptyModalData() {
+        this.cur_loc_id = '';
+        this.emptyLocation.forEach(key => this[key] = '');
+        this.buttonTitle = 'Add';
+    }
+    getLocationData() {
+        this.locationService.getAllLocationData().subscribe(data => this.locationData = data, err => console.log(err), () => console.log('All Location Data completed'));
+    }
+    createLocation() {
+        // tslint:disable-next-line:max-line-length
+        this.locationService.createLocationData(this.location_name, this.location_code, this.location_id, this.country, this.country_code).subscribe(data => this.locationData.push(data), err => console.log(err), () => {
+            console.log('Created completed');
+            this.getLocationData();
+            this.emptyLocation.forEach(key => this[key] = '');
+        });
+    }
+    updateLocation() {
+        // tslint:disable-next-line:max-line-length
+        this.locationService.updateLocationData(this.cur_loc_id, this.location_name, this.location_code, this.location_id, this.country, this.country_code).subscribe(err => console.log(err), () => {
+            console.log('updated completed');
+            this.getLocationData();
+            this.emptyLocation.forEach(key => this[key] = '');
+        });
+    }
+    updateData(location) {
+        this.emptyLocation.forEach(key => this[key] = location[key]);
+        this.buttonTitle = 'Update';
+        this.cur_loc_id = location.id;
+    }
+    deleteLocation(id) {
+        console.log(id);
+        this.locationService.deleteLocationData(id).subscribe(err => console.log(err), () => {
+            console.log('Deleted completed');
+            this.getLocationData();
+        });
     }
     getAllCityData(id) {
         this.router.navigate(['/city']);
-        this.cityService.getAllCityData(id).subscribe(data => this.cityData = data, err => console.log(err), () => console.log('city completed'));
+        this.cityService.getAllCityData(id).subscribe(data => this.cityData = data, err => console.log(err), () => {
+            console.log('City Navigation completed');
+        });
         console.log(this.cityData);
-    }
-    createData() {
-        console.log(this.location_name, this.location_code, this.location_id, this.country, this.country_code);
-        // tslint:disable-next-line:max-line-length
-        this.locationService.createLocationData(this.location_name, this.location_code, this.location_id, this.country, this.country_code).subscribe(data => this.locationData = data, err => console.log(err), () => console.log('location completed'));
     }
 };
 LocationComponent = __decorate([
