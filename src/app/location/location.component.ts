@@ -112,7 +112,7 @@ export class LocationComponent implements OnInit {
   }
 
   getAllCityData(id) {
-    this.router.navigate(['/city']);
+    this.router.navigate(['/']);
     this.cityService.getAllCityData(id).subscribe(
       data => this.cityData = data,
       err  => console.log(err),
