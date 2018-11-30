@@ -3,9 +3,7 @@ import {
   Table,
   Column,
   Model,
-  Unique,
-  PrimaryKey,
-  HasMany
+  Unique
 } from 'sequelize-typescript';
 import { City } from './citymodel';
 

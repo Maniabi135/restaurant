@@ -26,8 +26,6 @@ server.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', false);
     next();
 });
-// server.use(bodyParser.json());
-// server.use(bodyParser.urlencoded({ extended: true }));
 // initiate connection to db
 const mysequelize = database_1.sequelize;
 // add currencies route

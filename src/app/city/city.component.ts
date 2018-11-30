@@ -15,13 +15,13 @@ export class CityComponent implements OnInit {
 
   constructor( private locationService: LocationService, private cityService: CityService, public router: Router) { }
 
-ngOnInit() {
-  this.cityService.getAllCityData(this.id).subscribe(
-    data => this.cityData = data,
-    err  => console.log(err),
-    ()   => console.log('city completed')
-  );
-  console.log(this.cityData);
+  ngOnInit() {
+    this.cityService.getAllCityData(this.id).subscribe(
+      data => this.cityData = data,
+      err  => console.log(err),
+      ()   => console.log('city completed')
+    );
+    console.log(this.cityData);
   }
 
 }

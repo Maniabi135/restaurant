@@ -35,9 +35,6 @@ server.use(function (req, res, next) {
   next();
 });
 
-// server.use(bodyParser.json());
-// server.use(bodyParser.urlencoded({ extended: true }));
-
 // initiate connection to db
 const mysequelize = sequelize;
 

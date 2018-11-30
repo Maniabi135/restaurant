@@ -53,6 +53,7 @@ locations.post('/:id', async (req, res, next) => {
 
 locations.put('/:id', async (req, res, next) => {
     console.log(req.params['id']);
+    console.log(req.body);
     try {
         await Location.update<Location>(req.body, {
           where: {

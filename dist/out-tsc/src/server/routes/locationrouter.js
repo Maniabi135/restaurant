@@ -59,6 +59,7 @@ exports.locations.post('/:id', (req, res, next) => __awaiter(this, void 0, void 
 }));
 exports.locations.put('/:id', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
     console.log(req.params['id']);
+    console.log(req.body);
     try {
         yield locationmodel_1.Location.update(req.body, {
             where: {

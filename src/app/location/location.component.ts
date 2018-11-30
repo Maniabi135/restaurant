@@ -1,4 +1,3 @@
-import { locations } from './../../server/routes/locationrouter';
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from './location.service';
 import { CityService } from '../city/city.service';
